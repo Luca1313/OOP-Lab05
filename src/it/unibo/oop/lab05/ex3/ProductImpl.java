@@ -17,14 +17,6 @@ public class ProductImpl implements Product{
 		return this.quantity;
 	}
 	
-	public boolean equals(ProductImpl product) {
-		if (product == null) {
-			return false;
-		} else {
-			return this.name == product.getName();
-		}
-	}
-	
 	public String toString() {
 		return "I'm a " + this.name + " and I'm " + (this.quantity == 0? "not available." : 
 			"available in " + this.quantity + " pieces.");
