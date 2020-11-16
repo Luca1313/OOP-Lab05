@@ -1,6 +1,7 @@
 package it.unibo.oop.lab05.ex5;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 /**
  *
@@ -21,6 +22,7 @@ public final class Utilities {
      *            Collection type
      */
     public static <X> void copyAll(final Collection<X> source, final Collection<? super X> target) {
+    	target.addAll(source);
     }
 
     /**
@@ -32,7 +34,14 @@ public final class Utilities {
      * 
      */
     public static <X> X getRandomElement(final Collection<X> coll) {
-        return null;
+        Iterator<X> iter = coll.iterator();
+        X randomElem = null;
+        int i = ((int)(Math.random() * 100) % coll.size() + 1);
+        int num = 0;
+        do {
+        	randomElem = iter.next();
+        } while (++num < i);
+        return randomElem;
     }
 
     /**
@@ -47,6 +56,23 @@ public final class Utilities {
      * @return a pair with two random elements
      */
     public static <X, Y> Pair<X, Y> getRandomPair(final Collection<X> one, final Collection<Y> two) {
-        return null;
+    	Iterator<X> iter1 = one.iterator();
+    	Iterator<Y> iter2 = two.iterator();
+        X randomElem1 = null;
+        Y randomElem2 = null;
+        
+        int ran1 = ((int)(Math.random() * 100) % one.size() + 1);
+        int ran2 = ((int)(Math.random() * 100) % one.size() + 1);
+        int num = 0;
+        do {
+        	randomElem1 = iter1.next();
+        } while (++num < ran1);
+        num = 0;
+        do {
+        	randomElem2 = iter2.next();
+        } while (++num < ran2);
+        
+        Pair<X, Y> returnPair = new Pair<>(randomElem1, randomElem2);
+        return returnPair;
     }
 }

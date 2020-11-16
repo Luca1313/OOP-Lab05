@@ -16,7 +16,7 @@ package it.unibo.oop.lab05.ex5;
  */
 public final class Pair<X, Y> {
 
-    private final X first;//Commento
+    private final X first;
     private final Y second;
 
     /**
